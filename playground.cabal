@@ -1,0 +1,46 @@
+name:                playground
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/githubuser/playground#readme
+license:             unlicense
+license-file:        LICENSE
+author:              Jonathan Peel
+maintainer:          me@jonathanpeel.co.za
+copyright:           2017 Jonathan Peel
+category:            Learning
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     MasterMind
+  other-modules:       MasterMindSpec
+  build-depends:       base >= 4.7 && < 5
+  default-language:    Haskell2010
+
+executable playground
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , playground
+                     , random
+  default-language:    Haskell2010
+
+test-suite playground-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , playground
+                     , random
+                     , hspec
+                     , QuickCheck
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/Thorocaine/Jonathan-s-Haskel-Playground
